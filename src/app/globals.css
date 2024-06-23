@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components {
   .icon-animate {
     stroke-dashoffset: 100;
