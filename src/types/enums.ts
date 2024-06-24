@@ -6,6 +6,16 @@ enum EUserStatus {
 enum EUserRole {
   ADMIN = "ADMIN",
   USER = "USER",
-  EXPERT = "EXPERT"
+  EXPERT = "EXPERT",
 }
-export { EUserStatus, EUserRole };
+enum ECourseStatus {
+  APPROVED = "APPROVED",
+  PENDING = "PENDING",
+  REJECTED = "REJECTED",
+}
+enum EcourseLevel {
+  BEGINNER = "BEGINNER",
+  INTERMEDIATE = "INTERMEDIATE",
+  ADVANCED = "ADVANCED",
+}
+export { EUserStatus, EUserRole, ECourseStatus, EcourseLevel };
