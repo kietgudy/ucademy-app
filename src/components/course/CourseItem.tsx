@@ -20,7 +20,7 @@ const courseInfo = [
 ];
 const CourseItem = () => {
   return (
-    <div className="bg-gray-100 dark:bg-darkThemev2 border dark:border-opacity-10 border-gray-300 p-4 rounded-2xl">
+    <div className="bg-gray-100 dark:bg-darkThemev2 border dark:border-opacity-10 border-gray-300 p-4 mt-2 rounded-2xl">
       <Link href={"#"} className="block h-[200px] relative">
         <Image
           src="https://images.unsplash.com/photo-1569514831066-93529ffe6bc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dmlldCUyMG5hbXxlbnwwfHwwfHx8MA%3D%3D"
