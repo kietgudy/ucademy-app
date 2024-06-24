@@ -10,7 +10,7 @@ export interface IUser extends Document {
   courses: Schema.Types.ObjectId[]; //Khoa ngoai lien ket den table
   status: EUserStatus;
   role: EUserRole;
-  createdAt: Date;
+  created_at: Date;
 }
 const userSchema = new Schema<IUser>({
   clerkId: {
@@ -21,9 +21,13 @@ const userSchema = new Schema<IUser>({
   },
   username: {
     type: String,
+    unique: true,
+    required: true,
   },
   email: {
     type: String,
+    unique: true,
+    required: true,
   },
   avatar: {
     type: String,
@@ -34,7 +38,7 @@ const userSchema = new Schema<IUser>({
       ref: "Course",
     },
   ],
-  createdAt: {
+  created_at: {
     type: Date,
     default: Date.now,
   },
