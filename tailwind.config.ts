@@ -20,6 +20,8 @@ const config = {
     extend: {
       colors: {
         primary: "#097be6",
+        darkTheme: "#131316",
+        darkThemev2: "#212126"
       },
       fontFamily: {
         primary: ["var(--font-manrope)"],

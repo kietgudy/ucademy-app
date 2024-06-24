@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply dark:bg-darkTheme dark:text-white;
+  }
+}
+
 @layer components {
   .icon-animate {
     stroke-dashoffset: 100;

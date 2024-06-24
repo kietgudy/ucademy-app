@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/common/ThemeProvider";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -21,7 +22,16 @@ export default function RootLayout({
         <head>
           <link rel="icon" href="/favicon.ico" sizes="any" />
         </head>
-        <body className={manrope.className}>{children}</body>
+        <body className={manrope.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
