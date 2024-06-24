@@ -18,4 +18,8 @@ enum EcourseLevel {
   INTERMEDIATE = "INTERMEDIATE",
   ADVANCED = "ADVANCED",
 }
-export { EUserStatus, EUserRole, ECourseStatus, EcourseLevel };
+enum ELessonType {
+  VIDEO = "VIDEO",
+  TEXT = "TEXT",
+}
+export { EUserStatus, EUserRole, ECourseStatus, EcourseLevel, ELessonType };
