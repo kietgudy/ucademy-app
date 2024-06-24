@@ -25,6 +25,7 @@ export interface ICourse extends Document {
     }[];
   };
   lectures: Schema.Types.ObjectId[];
+  _destroy: boolean;
 }
 const courseSchema = new Schema<ICourse>({
   title: {
@@ -94,6 +95,10 @@ const courseSchema = new Schema<ICourse>({
         },
       },
     ],
+  },
+  _destroy: {
+    type: Boolean,
+    default: false,
   },
 });
 const Course = models.Course || model<ICourse>("User", courseSchema);
