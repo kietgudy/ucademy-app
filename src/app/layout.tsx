@@ -18,9 +18,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={manrope.className}>
-          {children}
-        </body>
+        <head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+        </head>
+        <body className={manrope.className}>{children}</body>
       </html>
     </ClerkProvider>
   );

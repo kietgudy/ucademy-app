@@ -2,10 +2,11 @@ import { menuItems } from "@/constants";
 import Image from "next/image";
 import ActiveLink from "../common/ActiveLink";
 import { IMenuItem } from "@/types";
+import { UserButton } from "@clerk/nextjs";
 
 const Sidebar = () => {
   return (
-    <div className="p-5 border-r border-r-gray-200">
+    <div className="p-5 border-r border-r-gray-200 flex flex-col">
       <a href="/" className="font-bold text-3xl mb-5 flex items-center">
         <Image src="/logo.jpg" alt="Ucademy Logo" width={45} height={45} />
         cademy
@@ -20,6 +21,10 @@ const Sidebar = () => {
           ></MenuItem>
         ))}
       </ul>
+      <div className="mt-auto flex items-center gap-2 p-2 bg-gray-200 rounded-xl">
+          <UserButton />
+        Account
+      </div>
     </div>
   );
 };

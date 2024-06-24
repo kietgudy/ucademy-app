@@ -1,9 +1,10 @@
+import Heading from "@/components/heading/Heading";
 
 const PageStudy = () => {
     return (
-        <div>
-            PageStudy
-        </div>
+        <>
+            <Heading>Khu vực học tập</Heading>
+        </>
     );
 };
 
