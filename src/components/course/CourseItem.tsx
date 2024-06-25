@@ -3,25 +3,26 @@ import Link from "next/link";
 import IconClock from "../icons/IconClock";
 import IconEye from "../icons/IconEye";
 import IconStar from "../icons/IconStar";
+import { ICourse } from "@/database/course.model";
 
-const courseInfo = [
-  {
-    title: "3000",
-    icon: <IconEye />,
-  },
-  {
-    title: "4.9",
-    icon: <IconStar />,
-  },
-  {
-    title: "11h20p",
-    icon: <IconClock />,
-  },
-];
-const CourseItem = () => {
+const CourseItem = ({data} : {data: ICourse}) => {
+  const courseInfo = [
+    {
+      title: data.views,
+      icon: <IconEye />,
+    },
+    {
+      title: data.rating[0],
+      icon: <IconStar />,
+    },
+    {
+      title: "11h20p",
+      icon: <IconClock />,
+    },
+  ];
   return (
     <div className="bg-gray-100 dark:bg-darkThemev2 border dark:border-opacity-10 border-gray-300 p-4 mt-2 rounded-2xl">
-      <Link href={"#"} className="block h-[200px] relative">
+      <Link href={`/course/${data.slug}`} className="block h-[200px] relative">
         <Image
           src="https://images.unsplash.com/photo-1569514831066-93529ffe6bc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dmlldCUyMG5hbXxlbnwwfHwwfHx8MA%3D%3D"
           alt=""
@@ -37,7 +38,7 @@ const CourseItem = () => {
       </Link>
       <div className="pt-4">
         <h3 className="font-bold text-lg mb-4">
-          Khóa học VSCode Master - Làm chủ VSCode nhanh chóng
+          {data.title}
         </h3>
         <div className="flex items-center gap-5 mb-5 text-sm font-semibold text-gray-500 dark:text-gray-400">
           {courseInfo.map((item, index) => (
@@ -47,10 +48,10 @@ const CourseItem = () => {
             </div>
           ))}
 
-          <span className="font-bold ml-auto text-[#ff695f]">999.000 VND</span>
+          <span className="font-bold ml-auto text-[#ff695f]">{data.price} VND</span>
         </div>
         <Link
-          href={"#"}
+          href={`/course/${data.slug}`}
           className="flex items-center justify-center w-full h-12 mt-10 rounded-lg text-white font-semibold bg-primary"
         >
           Xem chi tiết

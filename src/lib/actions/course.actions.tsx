@@ -1,10 +1,18 @@
 "use server";
 import { ICreateCourseParams } from "@/types";
 import { connectToDatabase } from "../mongoose";
-import Course from "@/database/course.model";
+import Course, {ICourse} from "@/database/course.model";
 
 //fetching
-
+export async function getAllCourses(): Promise<ICourse[] | undefined> {
+  try {
+    connectToDatabase();
+    const courses = await Course.find();
+    return courses;
+  } catch (error) {
+    console.log(error);
+  }
+}
 export async function getCourseBySlug({ slug }: { slug: string }) {
   try {
     connectToDatabase();
