@@ -11,7 +11,7 @@ import Link from "next/link";
 const Sidebar = () => {
   const { userId } = useAuth();
   return (
-    <div className="p-5 border-r border-r-gray-300 dark:border-opactity-10 dark:bg-darkThemev2 flex flex-col">
+    <div className="p-5 border-r border-r-gray-300 dark:border-r-gray-700 dark:bg-darkThemev2 flex flex-col">
       <a href="/" className="font-bold text-3xl mb-5 flex items-center">
         <Image src="/logo.jpg" alt="Ucademy Logo" width={45} height={45} />
         cademy

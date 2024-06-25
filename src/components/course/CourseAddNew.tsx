@@ -17,9 +17,8 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  title: z.string().min(10, "Tên khóa học phải có ít nhất 10 ký tự"),
+  slug: z.string().optional(),
 });
 
 function CourseAddNew() {
@@ -27,37 +26,48 @@ function CourseAddNew() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      title: "",
+      slug: "",
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+
     console.log(values);
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} autoComplete="off" >
+        <div className="grid grid-cols-2 gap-8 mt-8 mb-8">
         <FormField
           control={form.control}
-          name="username"
+          name="title"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Tên khóa học</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="Nhập tên khóa học" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <FormField
+          control={form.control}
+          name="slug"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Đường dẫn URL</FormLabel>
+              <FormControl>
+                <Input placeholder="khoa-hoc-lap-trinh" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        </div>
+        <Button type="submit">Tạo khóa học</Button>
       </form>
     </Form>
   );
