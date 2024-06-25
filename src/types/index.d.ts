@@ -16,3 +16,7 @@ export interface ICreateUserParams {
   name?: string;
   avatar?: string;
 }
+export interface ICreateCourseParams {
+  title: string;
+  slug: string;
+}
